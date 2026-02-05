@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <section
-      className="relative min-h-[85vh] w-full flex items-end overflow-hidden pb-16 sm:pb-20 lg:pb-24"
+      className="relative mt-22 min-h-[100vh] max-h-[830px] w-full flex items-end overflow-hidden pb-16 sm:pb-20 lg:pb-24"
       >
       {/* Background */}
       <div className="absolute inset-0 -z-10">
@@ -33,35 +33,34 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto md:px-0 px-4 sm:px-8">
+      <div className="container absolute left-7 bottom-20 mx-auto md:px-0 px-4 sm:px-8">
         <div className="max-w-4xl pt-2 md:items-center">
           {/* Heading */}
-          <h1 className="font-bold leading-[1.05] mb-6 tracking-tight text-5xl sm:text-5xl md:text-6xl lg:text-6xl">
-            <span className="block text-black">our gateway to earning</span>
-            <span className="text-black">freedom </span>
+          <h1 className="font-bold  leading-none mb-6 tracking-tight text-3xl sm:text-5xl ">
+            <span className="block text-black">our gateway to earning freedom</span>
             <span className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]">
               wherever you are.
             </span>
           </h1>
 
           {/* Subtext */}
-          <p className="max-w-lg mb-8 text-sm md:text-xl sm:text-base text-black/80 font-medium">
+          <p className="max-w-lg mb-10 leading-none sm:text-[17px]  text-base text-black/80 ">
             Experience curated shopping made simple, secure, and seamless.
           </p>
 
           {/* CTA */}
           <Link
             href="/services"
-            className="group inline-flex items-center bg-black rounded-full p-1.5 pr-6 hover:pr-1.5 hover:pl-6 transition-all duration-500 ease-in-out w-fit"
+            className="group hover:translate-x-10 relative inline-flex items-center bg-black rounded-full  transition-all duration-500 ease-in-out w-fit"
           >
-            <div className="order-2 group-hover:order-1 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 text-white group-hover:bg-white group-hover:text-black transition-colors duration-300">
+            <div className="order-2  absolute -right-10 group-hover:-left-10   flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black text-white   transition-all duration-1000 ease-in-out">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="currentColor"
-                className="w-4 h-4 sm:w-5 sm:h-5"
+                className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5  font-bold"
               >
                 <path
                   strokeLinecap="round"
@@ -71,7 +70,7 @@ export default function Hero() {
               </svg>
             </div>
 
-            <span className="order-1 group-hover:order-2 text-white font-medium text-sm sm:text-base px-3 whitespace-nowrap">
+            <span className="order-1 z-10 text-white  text-sm sm:text-base px-7 py-2 whitespace-nowrap">
               Browse Our Services
             </span>
           </Link>

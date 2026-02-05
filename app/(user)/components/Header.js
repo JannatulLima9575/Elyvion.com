@@ -29,9 +29,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-        <div className="container mx-auto md:px-0 px-4 py-3">
-          <div className="flex items-center justify-between">
+      <header className=" h-24 fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
+        <div className="md:px-14 px-4  w-full h-full pt-4">
+          <div className=" flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <div className="flex flex-col items-center">
@@ -40,13 +40,13 @@ export default function Header() {
                   alt="Elyvion"
                   width={60}
                   height={60}
-                  className="w-14 h-12 sm:w-16 sm:h-14 lg:w-20 lg:h-16 xl:w-24 xl:h-20 object-contain"
+                  className="w-14 h-14 sm:w-16 sm:h-14 lg:w-20 lg:h-16 xl:w-24 xl:h-20 object-contain"
                 />
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <nav className="hidden lg:flex items-center gap-8 ">
               <Link
                 href="/member-level"
                 className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
@@ -64,7 +64,7 @@ export default function Header() {
                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                   />
                 </svg>
-                <span className="text-sm font-medium">Member Level</span>
+                <span className="text-base ">Member Level</span>
               </Link>
 
               <Link
@@ -84,7 +84,7 @@ export default function Header() {
                     d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span className="text-sm font-medium">Help</span>
+                <span className="text-base ">Help</span>
               </Link>
 
               <button
@@ -104,7 +104,7 @@ export default function Header() {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span className="text-sm font-medium">Customer Service</span>
+                <span className="text-base">Customer Service</span>
               </button>
 
               <button
@@ -112,7 +112,7 @@ export default function Header() {
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
