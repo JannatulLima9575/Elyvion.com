@@ -67,23 +67,37 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className="py-24  bg-gray-50">
+      <div className=" px-6">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black">
+          <h2 className="text-4xl  font-bold text-black">
             Our full-service<br />offering...
           </h2>
           
-          <Link 
+          <Link
             href="/services"
-            className="inline-flex items-center gap-3 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium hover:bg-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="group mr-11 hover:translate-x-10 relative inline-flex items-center bg-black rounded-full  transition-all duration-500 ease-in-out w-fit"
           >
-            <span>View all services</span>
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-              <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <div className="order-2  absolute -right-10 group-hover:-left-10   flex items-center justify-center w-10 h-10 rounded-full bg-black text-white   transition-all duration-1000 ease-in-out">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-3.5 h-3.5   font-bold"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
               </svg>
             </div>
+
+            <span className="order-1 z-10 text-white  text-base px-7 py-2 whitespace-nowrap">
+              View All Services
+            </span>
           </Link>
         </div>
 
@@ -118,11 +132,11 @@ export default function ServicesSection() {
                       </svg>
                     )}
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">{service.title}</h3>
+                  <h3 className="text-2xl  font-bold text-black">{service.title}</h3>
                 </div>
 
                 {/* Description */}
-                <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
+                <p className="text-base font-semibold text-black mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
@@ -135,14 +149,14 @@ export default function ServicesSection() {
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <span className="text-sm sm:text-base text-gray-800">{feature}</span>
+                      <span className="text-base text-gray-800">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* CTA Button */}
                 <button 
-                  className="w-full py-3 sm:py-4 border-2 border-black rounded-full text-base sm:text-lg font-medium text-gray-900 hover:bg-black hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                  className="w-full py-2 border-2 border-black rounded-full text-base  font-medium text-gray-900 hover:bg-black hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
                   aria-label={`Initiate ${service.title} campaign`}
                 >
                   Initiate Campaign
@@ -159,17 +173,6 @@ export default function ServicesSection() {
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          {/* Previous Arrow (optional) */}
-          <button 
-            onClick={handlePrev}
-            className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-black rounded-full items-center justify-center text-white hover:bg-gray-800 transition-all duration-300 shadow-lg z-10"
-            aria-label="Previous service"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
         </div>

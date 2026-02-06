@@ -6,6 +6,8 @@ import AboutSection from "./components/AboutSection";
 import AwardsSection from "./components/AwardsSection";
 import CertificateSection from "./components/CertificateSection";
 import CTASection from "./components/CTASection";
+import HistoryPage from "./history/HistoryPage";
+
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
       <ServicesSection />
       <CertificateSection />
       <CTASection />
+      <HistoryPage></HistoryPage>
+
     </>
   );
 }
