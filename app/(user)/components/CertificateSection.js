@@ -39,10 +39,10 @@ export default function CertificateSection() {
   };
 
   return (
-    <section className="px-4 md:px-10 lg:px-20 bg-gray-50 py-10">
+    <section className="px-2 md:px-6 lg:px-10 xl:px-11 2xl:px-20  bg-gray-50">
       {/* Main section */}
       <div className="bg-white border border-black rounded-3xl p-6">
-        <div className="flex flex-col items-start gap-6">
+        <div className="flex flex-col items-start  gap-6">
           <div className="flex flex-col items-start gap-4 flex-1">
             <div className="w-full inline-flex items-center gap-4">
               <svg className="w-8 h-8 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
@@ -64,56 +64,57 @@ export default function CertificateSection() {
 
       {/* --- PopUp --- */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/60 backdrop-blur-sm">
-          <div className="relative w-full max-w-2xl bg-white rounded-lg shadow-2xl flex flex-col h-full max-h-[96vh] overflow-hidden">
+        <div className="fixed inset-0 z-[999] shadow-2xl flex items-center justify-center   bg-black/50 backdrop-blur-none">
+          <div className="relative w-full max-w-4xl p-7  bg-white rounded-lg shadow-2xl flex flex-col h-full max-h-[90vh] overflow-hidden">
             
             {/* header part */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-              <h2 className="text-sm text-black">Certificate of Incorporation</h2>
-              <button onClick={toggleModal} className="text-gray-400 hover:text-black text-2xl leading-none">&times;</button>
+            <div className="flex items-center justify-between pb-5 ">
+              <h2 className="text-sm md:text-lg font-semibold text-black">Certificate of Incorporation</h2>
+              <button onClick={toggleModal} className="text-gray-700 hover:text-black text-2xl leading-none">&times;</button>
             </div>
+            <div className=" overflow-auto ">
+              {/* Inner part */}
+              <div className="flex-1 min-h-screen h-full  border-5 border-gray-100 rounded-tl-md rounded-bl-md bg-white p-4 sm:p-6 flex flex-col items-center">
+                <div className="relative w-1/3 h-full max-h-[500px] shadow-md rounded-md  bg-white overflow-hidden">
+                  <Image 
+                    src={images[currentIndex]} 
+                    alt={`Page ${currentIndex + 1}`} 
+                    fill
+                    className="object-fit  p-2"
+                    priority
+                  />
+                </div>
 
-            {/* Inner part */}
-            <div className="flex-1 overflow-hidden bg-white p-4 sm:p-6 flex flex-col items-center">
-              <div className="relative w-full h-full max-h-[75vh] border border-gray-300 rounded-md shadow-inner bg-white overflow-hidden">
-                <Image 
-                  src={images[currentIndex]} 
-                  alt={`Page ${currentIndex + 1}`} 
-                  fill
-                  className="object-contain p-2"
-                  priority
-                />
-              </div>
+                {/* navigation buttons */}
+                <div className="mt-4 flex items-center justify-center gap-4">
+                  <button 
+                    onClick={prevPage} 
+                    disabled={currentIndex === 0}
+                    className="px-4 py-1.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-30 rounded text-xs font-semibold text-gray-700 transition-colors"
+                  >
+                    Previous
+                  </button>
+                  
+                  <span className="text-xs font-bold text-gray-800">
+                    Page {currentIndex + 1} of {totalPages}
+                  </span>
 
-              {/* navigation buttons */}
-              <div className="mt-4 flex items-center justify-center gap-4">
-                <button 
-                  onClick={prevPage} 
-                  disabled={currentIndex === 0}
-                  className="px-4 py-1.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-30 rounded text-xs font-semibold text-gray-700 transition-colors"
-                >
-                  Previous
-                </button>
-                
-                <span className="text-xs font-bold text-gray-800">
-                  Page {currentIndex + 1} of {totalPages}
-                </span>
-
-                <button 
-                  onClick={nextPage} 
-                  disabled={currentIndex === totalPages - 1}
-                  className="px-4 py-1.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-30 rounded text-xs font-semibold text-gray-700 transition-colors"
-                >
-                  Next
-                </button>
+                  <button 
+                    onClick={nextPage} 
+                    disabled={currentIndex === totalPages - 1}
+                    className="px-4 py-1.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-30 rounded text-xs font-semibold text-gray-700 transition-colors"
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* close button */}
-            <div className="px-6 py-4 border-t flex justify-end">
+            <div className=" pt-4  flex justify-end">
               <button 
                 onClick={toggleModal}
-                className="px-6 py-1.5 bg-gray-50 border rounded-md text-xs font-bold text-gray-700 hover:bg-gray-100 transition-colors"
+                className="px-4 py-2  bg-gray-50  text-base rounded-lg shadow-sm  text-gray-700 hover:bg-gray-100 transition-colors"
               >
                 Close
               </button>
