@@ -19,59 +19,75 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black text-white  mb-7  pb-20 pt-30 ">
-      <div className="px-10">
-        <div className="flex flex-wrap flex-col lg:flex-row justify-start items-start gap-10 md:gap-40 ">
-          {/* Logo */}
-          <div className="w-fit">
-              <Image src="/logo/logo.png" alt="Elyvion" width={200} height={200} className="w-fit" />
-     
+    <footer className="bg-black text-white py-12 md:py-20">
+      <div className="container mx-auto px-6 md:px-10 lg:px-16">
+        
+        {/* Main Content Wrapper: Desktop এ সব Left-aligned */}
+        <div className="flex flex-col md:flex-row justify-start items-start gap-12 md:gap-32 lg:gap-48">
+          
+          {/* 1. Logo Section */}
+          <div className="shrink-0">
+            <Image 
+              src="/logo/logo.png" 
+              alt="Elyvion" 
+              width={180} 
+              height={50} 
+              className="w-40 md:w-44 lg:w-48 h-auto object-contain" 
+            />
           </div>
 
+          {/* 2. Links Section: Mobile এ পাশাপাশি ২ কলাম, Desktop এও পাশাপাশি */}
+          <div className="grid grid-cols-2 gap-10 md:flex md:flex-row md:gap-32 lg:gap-48">
+            
+            {/* Our Services Column */}
+            <div className="flex flex-col">
+              <h4 className="text-sm md:text-base font-bold mb-5 md:mb-6 text-white whitespace-nowrap">
+                Our Services
+              </h4>
+              <ul className="flex flex-col gap-3">
+                {serviceLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      href={link.href}
+                      className="text-gray-400 hover:text-white transition-all text-sm md:text-base font-medium"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Our Services */}
-          <div>
-            <h4 className="text-base  font-bold mb-4 ">Our Services</h4>
-            <ul className="space-y-1">
-              {serviceLinks.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-base font-bold mb-4 ">Company</h4>
-            <ul className="space-y-1">
-              {companyLinks.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Company Column */}
+            <div className="flex flex-col">
+              <h4 className="text-sm md:text-base font-bold mb-5 md:mb-6 text-white whitespace-nowrap">
+                Company
+              </h4>
+              <ul className="flex flex-col gap-3">
+                {companyLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      href={link.href}
+                      className="text-gray-400 hover:text-white transition-all text-sm md:text-base font-medium"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-800">
-          <p className="text-gray-400 text-sm sm:text-base">
-            ©2025 Elyvion &nbsp;&nbsp; All rights reserved
-          </p>
+        {/* 3. Bottom Bar: Copyright Section (Left aligned) */}
+        <div className="mt-12 md:mt-20 pt-8">
+          <div className="flex flex-row gap-6 md:gap-10 text-gray-500 text-xs md:text-sm font-medium">
+            <span>©2025 Elyvion</span>
+            <span>All rights reserved</span>
+          </div>
         </div>
+
       </div>
     </footer>
   );
 }
-
