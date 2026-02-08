@@ -1,9 +1,51 @@
+'use client';
+
 import { ChevronLeft, Save } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+
+/* 🔹 DATA ARRAYS */
+const withdrawalMethods = [
+  'Bank Account',
+  "Touch 'n Go eWallet",
+  'USDT wallet address',
+];
+
+const banks = [
+  'Maybank',
+  'CIMB Bank',
+  'Public Bank',
+  'Hong Leong Bank',
+  'RHB Bank',
+  'Bank Islam',
+  'AmBank',
+  'Bank Rakyat',
+  'BSN (Bank Simpanan Nasional)',
+  'HSBC',
+  'Standard Chartered',
+  'OCBC Bank',
+  'UOB Bank',
+  'Alliance Bank',
+  'Affin Bank',
+  'Bank Muamalat',
+  'Agrobank',
+  'MBSB Bank',
+];
 
 export default function WithdrawalInformationPage() {
+  const { register, handleSubmit } = useForm();
+  const [submitted, setSubmitted] = useState(false);
+
+  const onSubmit = (data) => {
+    console.log('Withdrawal Data:', data);
+
+    toast.success('Withdrawal information updated successfully!');
+    setSubmitted(true);
+  };
+
   return (
-    // ✅ navbar থেকে আরও নিচে
     <div className="min-h-screen bg-gray-50 pt-24">
       {/* HEADER */}
       <div className="bg-white border-b border-gray-200">
@@ -33,16 +75,19 @@ export default function WithdrawalInformationPage() {
             funds.
           </p>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             {/* Withdrawal Method */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 Withdrawal Method
               </label>
-              <select className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-yellow-500 transition-colors">
-                <option>Bank Account</option>
-                <option>Touch &apos;n Go eWallet</option>
-                <option>USDT wallet address</option>
+              <select
+                {...register('withdrawalMethod', { required: true })}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-yellow-500 transition-colors"
+              >
+                {withdrawalMethods.map((method) => (
+                  <option key={method}>{method}</option>
+                ))}
               </select>
             </div>
 
@@ -51,26 +96,14 @@ export default function WithdrawalInformationPage() {
               <label className="block text-sm font-medium text-gray-700">
                 Bank Name
               </label>
-              <select className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-yellow-500 transition-colors">
+              <select
+                {...register('bankName', { required: true })}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-yellow-500 transition-colors"
+              >
                 <option>Select bank</option>
-                <option>Maybank</option>
-                <option>CIMB Bank</option>
-                <option>Public Bank</option>
-                <option>Hong Leong Bank</option>
-                <option>RHB Bank</option>
-                <option>Bank Islam</option>
-                <option>AmBank</option>
-                <option>Bank Rakyat</option>
-                <option>BSN (Bank Simpanan Nasional)</option>
-                <option>HSBC</option>
-                <option>Standard Chartered</option>
-                <option>OCBC Bank</option>
-                <option>UOB Bank</option>
-                <option>Alliance Bank</option>
-                <option>Affin Bank</option>
-                <option>Bank Muamalat</option>
-                <option>Agrobank</option>
-                <option>MBSB Bank</option>
+                {banks.map((bank) => (
+                  <option key={bank}>{bank}</option>
+                ))}
               </select>
             </div>
 
@@ -82,6 +115,7 @@ export default function WithdrawalInformationPage() {
               <input
                 type="text"
                 defaultValue="Nikita Ashley Fernandez"
+                {...register('accountHolder', { required: true })}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-yellow-500 transition-colors"
               />
             </div>
@@ -94,18 +128,24 @@ export default function WithdrawalInformationPage() {
               <input
                 type="text"
                 defaultValue="23650218816"
+                {...register('accountNumber', { required: true })}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-yellow-500 transition-colors"
               />
             </div>
 
-            {/* BUTTON – YELLOW */}
+            {/* BUTTON */}
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg font-medium
-                         bg-yellow-400 text-black hover:bg-yellow-500 transition-colors"
+              disabled={submitted}
+              className={`w-full flex items-center justify-center gap-2 py-3 rounded-lg font-medium transition-colors
+                ${
+                  submitted
+                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                    : 'bg-yellow-400 text-black hover:bg-yellow-500'
+                }`}
             >
               <Save className="w-5 h-5" />
-              Update Information
+              {submitted ? 'Updated' : 'Update Information'}
             </button>
           </form>
         </div>
