@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -12,12 +12,12 @@ export default function Header() {
   // Prevent body scroll when sidebar or modal is open
   useEffect(() => {
     if (sidebarOpen || customerServiceModalOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [sidebarOpen, customerServiceModalOpen]);
 
@@ -49,62 +49,74 @@ export default function Header() {
             <nav className="hidden lg:flex items-center gap-8 ">
               <Link
                 href="/member-level"
-                className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+                className="flex items-center  text-black-700 hover:text-gray-900 transition-colors"
               >
                 <svg
-                  className="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-award mr-3 h-5 w-5"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
+                  <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
+                  <circle cx="12" cy="8" r="6"></circle>
                 </svg>
-                <span className="text-base ">Member Level</span>
+                <span className="text-sm hover:underline hover:underline-offset-2 hover:decoration-1 decoration-black transition-all duration-200 ">
+                  Member Level
+                </span>
               </Link>
 
               <Link
                 href="/help"
-                className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+                className="flex items-center gap-2 text-black hover:text-gray-900 transition-colors"
               >
                 <svg
-                  className="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-circle-help mr-3 h-5 w-5"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <path d="M12 17h.01"></path>
                 </svg>
-                <span className="text-base ">Help</span>
+                <span className="text-sm hover:underline hover:underline-offset-2 hover:decoration-1 decoration-black transition-all duration-200 ">
+                  Help
+                </span>
               </Link>
 
               <button
                 onClick={handleCustomerServiceClick}
-                className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+                className="flex items-center gap-2 text-black hover:text-gray-900 transition-colors"
               >
                 <svg
-                  className="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-headphones mr-3 h-5 w-5"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
+                  <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
                 </svg>
-                <span className="text-base">Customer Service</span>
+                <span className="text-md hover:underline hover:underline-offset-2 hover:decoration-1 decoration-black transition-all duration-200">
+                  Customer Service
+                </span>
               </button>
 
               <button
@@ -160,7 +172,7 @@ export default function Header() {
 
       {/* Right Sidebar */}
       <div
-        className={`fixed top-0 right-0 bottom-0 overflow-auto h-full w-70 bg-[#1a5f6f] z-70 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 bottom-0 overflow-auto h-full w-70 bg-[#1a5f6f] z-70 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         {/* Close Button */}
         <div className="flex justify-end p-4">
@@ -458,7 +470,7 @@ export default function Header() {
 
               {/* Contact Us Button */}
               <button
-                onClick={() => window.open("https://t.me/elyvion", "_blank")}
+                onClick={() => window.open('https://t.me/elyvion', '_blank')}
                 className="w-full bg-[#1a5f6f] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#164d5c] transition-colors"
               >
                 Contact Us

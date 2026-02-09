@@ -25,9 +25,9 @@ export default function ServicesSection() {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const cardWidth = container.querySelector('.service-card')?.offsetWidth || 0;
-      const gap = 32; 
+      const gap = 32;
       const scrollPosition = currentIndex * (cardWidth + gap);
-      
+
       container.scrollTo({
         left: scrollPosition,
         behavior: 'smooth'
@@ -46,13 +46,13 @@ export default function ServicesSection() {
   return (
     <section className="w-full md:px-2 xl:px-4 2xl:px-14 py-16 md:py-24 bg-gray-50 overflow-hidden">
       <div className="w-full mx-auto px-6">
-        
+
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 md:mb-12">
           <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-black">
             Our full-service<br />offering...
           </h2>
-          
+
           {/* View All Button - Visible only on Desktop in header */}
           <Link
             href="/services"
@@ -71,9 +71,9 @@ export default function ServicesSection() {
 
         {/* Scrollable Container with Mobile Arrow */}
         <div className="relative">
-          
+
           {/* Mobile Specific Arrow - Centered Right */}
-          <button 
+          <button
             onClick={handleNext}
             className="flex md:hidden absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black rounded-full items-center justify-center text-white shadow-lg z-20"
             aria-label="Next service"
@@ -83,13 +83,17 @@ export default function ServicesSection() {
             </svg>
           </button>
 
-          <div 
+          <div
             ref={scrollContainerRef}
             className="flex gap-8  overflow-x-auto w-full scrollbar-hide scroll-smooth "
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {SERVICES.map((service, index) => (
+<<<<<<< HEAD
               <article 
+=======
+              <article
+>>>>>>> upstream/main
                 key={index}
                 className="service-card  flex-shrink-0 w-full md:w-[calc(50%-16px)] lg:w-[calc(33%-20px)] bg-white rounded-3xl p-6 sm:p-8 shadow-lg border-t-4 border-black flex flex-col"
               >
@@ -128,7 +132,7 @@ export default function ServicesSection() {
           </div>
 
           {/* Desktop Navigation Arrow */}
-          <button 
+          <button
             onClick={handleNext}
             className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-12 h-12 bg-black rounded-full items-center justify-center text-white hover:bg-gray-800 transition-all shadow-lg z-10"
           >
