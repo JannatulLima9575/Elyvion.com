@@ -44,7 +44,7 @@ export default function RegisterPage() {
       return setError("You must accept Terms & Conditions");
     }
 
-    // TODO: API call here
+    // API call here
     router.push("/login");
   };
 
